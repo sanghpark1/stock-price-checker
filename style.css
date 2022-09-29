@@ -1,42 +1,74 @@
 * {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-    text-align: center;
-}
-
-/* .textbox, .check-btn {
-    width: 100px;
-} */
-
-.table {
-    position: relative;
-    margin: 5px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: lightgreen;
-    width: 80%;
-    left: 50%;
-    transform: translate(-50%,0);
-    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
-}
-
-.stat > div, .values > div {
-    border: 1px solid black;
-}
-
-.values {
-    text-align: center;
-}
-
-#years {
-  size: 5;
-}
-
-.details, .stats {
-    font-size: large;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
-    font-weight: bold;
-}
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+      background-color: lightblue;
+      background-image: url('https://www.dictionary.com/e/wp-content/uploads/2021/09/20210922_atw_memeStonk_800x800-300x300.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 20px 20px !important;
+      width: 300px;;
+  }
+  
+  body {
+      text-align: center;
+  }
+  
+  .heading {
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-size: 2.5rem;
+      color: white;
+  
+  }
+  .textbox {
+      border-radius: 0.3rem;
+      height: 1.5rem;
+      margin: 5px 5px !important;
+      width: 50%;
+  }
+  
+  select {
+      border-radius: 0.3rem;
+      height: 1.5rem;
+      margin: 5px 5px !important;
+      width: 50%;
+  }
+  
+  .table {
+      position: relative;
+      margin: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background-color: lightgreen;
+      width: 80%;
+      left: 50%;
+      transform: translate(-50%,0);
+      border-radius: 1rem;
+      border: 5px black solid;
+      /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
+  }
+  
+  .stat > div, .values > div {
+      border: 1px solid black;
+  }
+  
+  .values {
+      text-align: center;
+      
+  }
+  
+  #years {
+    size: 5;
+  }
+  
+  .details, .stats {
+      font-size: 1.5rem;
+      font-family:Verdana, Geneva, Tahoma, sans-serif
+      font-weight: bold;
+      height: 2rem;
+      line-height: 2rem; 
+      
+  }

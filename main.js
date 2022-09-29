@@ -3,22 +3,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btn = document.getElementsByClassName("check-btn")[0];
     const textValue = document.getElementsByClassName("textbox")[0];
-    const dateValue = document.getElementsByClassName("datebox")[0];
+    // const dateValue = document.getElementsByClassName("datebox")[0];
     // console.log(textValue);
     // console.log("test: ", textValue.value);
+
+    const yearValue = document.getElementById('year');
+    const monthValue = document.getElementById('month');
+    const dayValue = document.getElementById('day');
+
 
     let stockData;
 
     btn.addEventListener('click', () => {   
         console.log("button clicked")
+        console.log(yearValue.value);
+        console.log(monthValue.value);
+        console.log(dayValue.value);
 
-        if (textValue.value !== undefined && dateValue.value !== undefined) {
-          fetch(`https://api.polygon.io/v1/open-close/${textValue.value.toUpperCase()}/${dateValue.value}?adjusted=true&apiKey=ojGBIJjRcLNpZpelmtn6_V2P3Vgw2wjp`)
+      // alert('hi');
+
+        if (textValue.value !== undefined || yearValue.value !== undefined || monthValue.value !== undefined || dayValue.value !== undefined) {
+          fetch(`https://api.polygon.io/v1/open-close/${textValue.value.toUpperCase()}/${yearValue.value}-${monthValue.value}-${dayValue.value}?adjusted=true&apiKey=ojGBIJjRcLNpZpelmtn6_V2P3Vgw2wjp`)
             .then((data) => data.json())
             .then((data) => {
+              console.log(data);
               // With the data, invoke our doTheWork function, which is defined outside of fetch.
-              stockData = data
+              if (data.status === 'NOT_FOUND') {
+                alert('Data Not Available')
+              } if (data.error === `You've exceeded the maximum requests per minute, please wait or upgrade your subscription to continue. https://polygon.io/pricing`) {
+                alert('Maximum searches in 1 minute reached, please pay more money to upgrade. ')
+              } else {
+                stockData = data
               sortData(stockData)
+              }
+
+            })
+            .catch((err) => {
+              console.log('testError: ', err);
             });
         }
       });
@@ -44,15 +65,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const years = document.getElementById('year');
-      console.log(years);
-
-      for (let i = 2020; i >= 1980; i--) {
+      for (let i = 2022; i >= 1980; i--) {
         const choice = document.createElement('option');
         choice.setAttribute('value', i);
         choice.innerHTML = i;
         years.appendChild(choice);
       }
 
+      const months = document.getElementById('month');
+      for (let i = 1; i <= 12; i++) {
+        const choice = document.createElement('option');
+        if (i < 10) choice.setAttribute('value', `0${i}`);
+        if (i >= 10) choice.setAttribute('value', i);
+        choice.innerHTML = i;
+        months.appendChild(choice);
+      }
+
+      const days = document.getElementById('day');
+      for (let i = 1; i <= 31; i++) {
+        const choice = document.createElement('option');
+        if (i < 10) choice.setAttribute('value', `0${i}`);
+        if (i >= 10) choice.setAttribute('value', i);
+        choice.innerHTML = i;
+        days.appendChild(choice);
+      }
   });
 
 
