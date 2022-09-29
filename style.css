@@ -12,9 +12,14 @@ body {
 } */
 
 .table {
+    position: relative;
     margin: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: lightgreen;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%,0);
     /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
 }
 
@@ -28,4 +33,10 @@ body {
 
 #years {
   size: 5;
+}
+
+.details, .stats {
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-weight: bold;
 }
