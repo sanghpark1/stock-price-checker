@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    text-align: center;
+}
+
+/* .textbox, .check-btn {
+    width: 100px;
+} */
+
+.table {
+    margin: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
+}
+
+.stat > div, .values > div {
+    border: 1px solid black;
+}
+
+.values {
+    text-align: center;
+}
+
+#years {
+  size: 5;
+}
